@@ -115,6 +115,9 @@ const CONTENT = {
     resource3Title: 'التقويم الهجري',
     resource3Desc: 'معرفة التواريخ الهجرية والمناسبات الدينية',
     resource3Link: 'عرض التقويم',
+    resource4Title: 'وزارة الشؤون الدينية',
+    resource4Desc: 'الموقع الرسمي لوزارة الشؤون الدينية والأوقاف بالجزائر',
+    resource4Link: 'زيارة الموقع',
 
     // Contact
     contactTitle: 'اتصل بنا',
@@ -125,6 +128,8 @@ const CONTENT = {
     contactAddressValue: 'حي 40 هكتار (RP2V+P85)، جيجل، الجزائر 18000',
     contactPhone: 'الهاتف',
     contactEmail: 'البريد الإلكتروني',
+    contactFacebook: 'فيسبوك',
+    contactFacebookValue: 'الصفحة الرسمية على فيسبوك',
     contactHours: 'أوقات العمل',
     contactHoursValue: 'مفتوح يومياً لجميع الصلوات',
     formName: 'الاسم الكامل',
@@ -267,6 +272,9 @@ const CONTENT = {
     resource3Title: 'Hijri Calendar',
     resource3Desc: 'Learn about Hijri dates and religious occasions throughout the year.',
     resource3Link: 'View Calendar',
+    resource4Title: 'Ministry of Religious Affairs',
+    resource4Desc: 'Official website of the Algerian Ministry of Religious Affairs and Endowments.',
+    resource4Link: 'Visit Website',
 
     // Contact
     contactTitle: 'Contact Us',
@@ -277,6 +285,8 @@ const CONTENT = {
     contactAddressValue: 'Hai 40 Hectares (RP2V+P85), Jijel, Algeria 18000',
     contactPhone: 'Phone',
     contactEmail: 'Email',
+    contactFacebook: 'Facebook',
+    contactFacebookValue: 'Official Facebook Page',
     contactHours: 'Hours',
     contactHoursValue: 'Open daily for all prayers',
     formName: 'Full Name',
