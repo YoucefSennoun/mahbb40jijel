@@ -369,6 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPrayerTimes();
   initBackToTop();
   initContactForm();
+  initCMSData();
 });
 
 // ════════════════════════════════════════════
@@ -706,4 +707,96 @@ function initContactForm() {
       btn.disabled = false;
     }, 1500);
   });
+}
+
+// ════════════════════════════════════════════
+//  CMS DATA FETCHING
+// ════════════════════════════════════════════
+async function initCMSData() {
+  loadAnnouncements();
+  loadNews();
+}
+
+async function loadAnnouncements() {
+  try {
+    const response = await fetch('data/announcements.json');
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json();
+    const grid = document.getElementById('announcements-grid');
+    if (!grid || !data.items) return;
+    
+    grid.innerHTML = '';
+    data.items.forEach((item, index) => {
+      const delay = (index % 3) + 1;
+      const html = `
+        <div class="announcement-card animate-on-scroll delay-${delay} visible">
+          <div class="announcement-card-body">
+            <span class="announcement-badge">${item.badge || 'إعلان'}</span>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+            <div class="announcement-meta">
+              <span>📅</span>
+              <span>${item.date}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.insertAdjacentHTML('beforeend', html);
+    });
+  } catch (error) {
+    console.error('Failed to load announcements:', error);
+  }
+}
+
+async function loadNews() {
+  try {
+    const repo = 'YoucefSennoun/mahbb40jijel';
+    const apiUrl = `https://api.github.com/repos/${repo}/contents/data/news`;
+    const response = await fetch(apiUrl);
+    
+    const grid = document.getElementById('news-grid');
+    if (!grid) return;
+
+    if (!response.ok) {
+      console.warn('Could not fetch news directory from GitHub API. This may be due to rate limits or unpushed changes.');
+      return;
+    }
+    
+    const files = await response.json();
+    const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+    
+    grid.innerHTML = '';
+    
+    for (let i = 0; i < jsonFiles.length; i++) {
+      const file = jsonFiles[i];
+      const res = await fetch(file.download_url);
+      if (!res.ok) continue;
+      const newsItem = await res.json();
+      
+      const delay = (i % 3) + 1;
+      const dateStr = new Date(newsItem.date).toLocaleDateString('ar-DZ');
+      
+      const imageHtml = newsItem.image ? `<img src="${newsItem.image}" alt="${newsItem.title}" style="width:100%; border-radius: 8px; margin-bottom: 1rem;">` : '';
+      
+      // We parse markdown for body as it's a markdown widget in CMS. Simple fallback if no marked.js:
+      const bodyHtml = (newsItem.body || '').replace(/\n/g, '<br>');
+      
+      const html = `
+        <div class="announcement-card animate-on-scroll delay-${delay} visible">
+          <div class="announcement-card-body">
+            ${imageHtml}
+            <h3>${newsItem.title}</h3>
+            <p>${bodyHtml}</p>
+            <div class="announcement-meta">
+              <span>📅</span>
+              <span>${dateStr}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      grid.insertAdjacentHTML('beforeend', html);
+    }
+  } catch (error) {
+    console.error('Failed to load news:', error);
+  }
 }

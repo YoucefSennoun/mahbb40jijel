@@ -348,6 +348,21 @@
   </section>
 
   <!-- ═══════════════════════════════════════
+       NEWS SECTION
+       ═══════════════════════════════════════ -->
+  <section class="section news-section" id="news">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-i18n="newsTitle">أخبار المسجد</h2>
+      <p class="section-subtitle animate-on-scroll" data-i18n="newsSubtitle">آخر المستجدات والأحداث</p>
+      <div class="section-divider"></div>
+
+      <div class="announcements-grid" id="news-grid">
+        <!-- News items will be loaded here dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
        ANNOUNCEMENTS SECTION
        ═══════════════════════════════════════ -->
   <section class="section announcements-section" id="announcements">
@@ -357,48 +372,8 @@
       </p>
       <div class="section-divider"></div>
 
-      <div class="announcements-grid">
-        <div class="announcement-card animate-on-scroll delay-1">
-          <div class="announcement-card-body">
-            <span class="announcement-badge" data-i18n="announcement1Badge">إعلان</span>
-            <h3 data-i18n="announcement1Title">مواعيد صلاة التراويح</h3>
-            <p data-i18n="announcement1Text">نعلم المصلين الكرام أن صلاة التراويح تقام يومياً خلال شهر رمضان المبارك بعد
-              صلاة العشاء مباشرة.</p>
-            <div class="announcement-meta">
-              <span>📅</span>
-              <span data-i18n="announcement1Date">إدارة المسجد</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="announcement-card animate-on-scroll delay-2">
-          <div class="announcement-card-body">
-            <span class="announcement-badge"
-              style="background: rgba(212,168,67,0.15); color: var(--color-accent-light);"
-              data-i18n="announcement2Badge">جديد</span>
-            <h3 data-i18n="announcement2Title">دورة تحفيظ القرآن الكريم</h3>
-            <p data-i18n="announcement2Text">يسرنا الإعلان عن فتح باب التسجيل في دورة تحفيظ القرآن الكريم للأطفال
-              والكبار. المقاعد محدودة.</p>
-            <div class="announcement-meta">
-              <span>📝</span>
-              <span data-i18n="announcement2Date">التسجيل مفتوح</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="announcement-card animate-on-scroll delay-3">
-          <div class="announcement-card-body">
-            <span class="announcement-badge" style="background: rgba(229,62,62,0.15); color: #fc8181;"
-              data-i18n="announcement3Badge">مهم</span>
-            <h3 data-i18n="announcement3Title">صيانة وتجديد المسجد</h3>
-            <p data-i18n="announcement3Text">يتم حالياً إجراء أعمال صيانة وتجديد في بعض أجزاء المسجد. نعتذر عن أي إزعاج
-              ونشكر تفهمكم.</p>
-            <div class="announcement-meta">
-              <span>🔧</span>
-              <span data-i18n="announcement3Date">إدارة المسجد</span>
-            </div>
-          </div>
-        </div>
+      <div class="announcements-grid" id="announcements-grid">
+        <!-- Announcements items will be loaded here dynamically -->
       </div>
     </div>
   </section>
